@@ -25,12 +25,6 @@ public class BounceFrame extends JFrame {
 
         JButton buttonStart = new JButton("Start");
         JButton buttonStop = new JButton("Stop");
-        JLabel textPane = new JLabel("tt");
-
-        Pocket pocket = new Pocket(canvas);
-        canvas.addPocket(pocket);
-        Counter con = new Counter(canvas);
-        canvas.addC(con);
 
         buttonStart.addActionListener(new ActionListener() {
             @Override
@@ -39,8 +33,6 @@ public class BounceFrame extends JFrame {
                 Ball b = new Ball(canvas,c1);
                 canvas.add(b);
                 BallThread thread = new BallThread(b, canvas);
-                thread.getPocket(pocket.x,
-                        pocket.y);
                 thread.setPriority(Thread.MAX_PRIORITY);
                 thread.start();
                 System.out.println("Thread name = " + thread.getName());
@@ -55,8 +47,6 @@ public class BounceFrame extends JFrame {
                 Ball b = new Ball(canvas,c2);
                 canvas.add(b);
                 BallThread thread = new BallThread(b, canvas);
-                thread.getPocket(pocket.x,
-                        pocket.y);
                 thread.setPriority(Thread.MIN_PRIORITY);
                 thread.start();
                 System.out.println("Thread name = " + thread.getName());
@@ -64,7 +54,7 @@ public class BounceFrame extends JFrame {
                 canvas.repaint();
             }
         });
-        buttonPanel.add(textPane );
+
         buttonPanel.add(buttonStart);
         buttonPanel.add(buttonStop);
 
