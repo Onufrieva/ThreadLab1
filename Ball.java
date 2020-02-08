@@ -1,6 +1,5 @@
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
-import java.util.Random;
 
 class Ball {
     private Component canvas;
@@ -16,14 +15,9 @@ class Ball {
     public Ball(Component c, Color color){
         this.canvas = c;
         this.color = color;
-
-        if(Math.random()<0.5){
-            x = new Random().nextInt(this.canvas.getWidth());
+            x = 0;//new Random().nextInt(this.canvas.getWidth());
             y = 0;
-        }else{
-            x = 0;
-            y = new Random().nextInt(this.canvas.getHeight());
-        }
+
     }
 
     public static void f(){

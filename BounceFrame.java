@@ -36,6 +36,13 @@ public class BounceFrame extends JFrame {
                 thread.setPriority(Thread.MAX_PRIORITY);
                 thread.start();
                 System.out.println("Thread name = " + thread.getName());
+                Ball b1 = new Ball(canvas,c2);
+                canvas.add(b1);
+                canvas.repaint();
+                BallThread thread1 = new BallThread(b, canvas);
+                thread1.setPriority(Thread.MIN_PRIORITY);
+                thread1.start();
+                System.out.println("Thread name = " + thread1.getName());
                 canvas.repaint();
             }
         });

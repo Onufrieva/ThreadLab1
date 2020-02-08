@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.Ellipse2D;
 import java.util.ArrayList;
 
 public class BallCanvas extends JPanel {
@@ -21,12 +20,7 @@ public class BallCanvas extends JPanel {
 
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
-        g2.setColor(Color.black);
-        g2.fill(new Ellipse2D.Double(100,50,25,25));
-            g.setColor(Color.black);
-            g.drawString(" Counter: "+Integer.toString(counter),10,250);
-
-        for(int i=0; i<balls.size();i++){
+            for(int i=0; i<balls.size();i++){
             Ball b = balls.get(i);
             b.draw(g2);
         }
