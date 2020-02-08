@@ -28,20 +28,15 @@ public void delete(Ball b){
 
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
-
-            //Pocket pocket = pockets.get(0);
-            //pocket.draw(g2);
         g2.setColor(Color.black);
         g2.fill(new Ellipse2D.Double(100,50,25,25));
             Counter con = count.get(0);
             g.setColor(Color.black);
             g.drawString(" Counter: "+Integer.toString(counter),10,250);
 
-
         for(int i=0; i<balls.size();i++){
             Ball b = balls.get(i);
             b.draw(g2);
-
         }
     }
 }

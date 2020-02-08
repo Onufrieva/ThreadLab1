@@ -13,10 +13,4 @@ public class Counter  {
     public static void f(){
         int a = 0;
     }
-
-    public void draw (Graphics g, String str){
-
-    }
-
-
 }

@@ -6,8 +6,8 @@ class Ball {
     private Component canvas;
     private static final int XSIZE = 20;
     private static final int YSIZE = 20;
-    public int x = 0;
-    public int  y= 0;
+    public int x = 1;
+    public int  y= 1;
     private int dx = 2;
     private int dy = 2;
     Color color;
@@ -15,7 +15,7 @@ class Ball {
 
     public Ball(Component c, Color color){
         this.canvas = c;
-this.color = color;
+        this.color = color;
 
         if(Math.random()<0.5){
             x = new Random().nextInt(this.canvas.getWidth());
@@ -37,7 +37,7 @@ this.color = color;
     }
 
     public void del(){
-              this.canvas.repaint();
+        this.canvas.repaint();
     }
     public void move(){
         x+=dx;

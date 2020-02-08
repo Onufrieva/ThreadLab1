@@ -8,8 +8,6 @@ public class Pocket  {
     public int x = 100;
     public int  y= 50;
 
-
-
     public Pocket(Component c){
         this.canvas = c;
     }

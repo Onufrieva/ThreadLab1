@@ -51,8 +51,6 @@ Color c1 = new Color (255,255,0);
 
                 Ball b = new Ball(canvas,c1);
                 canvas.add(b);
-
-
                 BallThread thread = new BallThread(b, canvas);
                 thread.getPocket(pocket.x,
                         pocket.y);
@@ -71,8 +69,6 @@ Color c1 = new Color (255,255,0);
 
                 Ball b = new Ball(canvas,c2);
                 canvas.add(b);
-
-
                 BallThread thread = new BallThread(b, canvas);
                 thread.getPocket(pocket.x,
                         pocket.y);
@@ -81,19 +77,13 @@ Color c1 = new Color (255,255,0);
                 System.out.println("Thread name = " + thread.getName());
 
                 canvas.repaint();
-
             }
-
         });
-
         buttonPanel.add(textPane );
         buttonPanel.add(buttonStart);
         buttonPanel.add(buttonStop);
 
-
         content.add(buttonPanel, BorderLayout.SOUTH);
     }
-    public void countBalls(){
 
-    }
 }

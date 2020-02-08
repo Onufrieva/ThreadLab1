@@ -33,7 +33,6 @@ BallCanvas canvas;
             Thread.currentThread().sleep(1);
 
         } catch(InterruptedException ex){
-
             System.out.println(Thread.currentThread().getState());
         }
 
