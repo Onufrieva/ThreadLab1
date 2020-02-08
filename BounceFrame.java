@@ -16,6 +16,9 @@ Color c1 = new Color (255,255,0);
         this.setTitle("Bounce programm");
 
 
+
+
+
         this.canvas = new BallCanvas();
 
 
