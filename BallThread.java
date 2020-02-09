@@ -1,36 +1,18 @@
 public class BallThread  extends Thread{
-
-    private Ball b;
-private int x=0;
-private int y =0;
-public int tt=0;
-BallCanvas canvas;
-
-
-    public void getPocket(int x, int y){
-       this.x=x;
-       this.y=y;
+    String str;
+    BallThread(String str){
+        this.str = str;
     }
-
-    public BallThread(Ball ball, BallCanvas c){
-        b = ball;
-        canvas = c;
-
-    }
-
+    synchronized
     @Override
     public void run(){
         try{
             while (!(1==0)){
-                b.move();
-                System.out.println("Thread name = "
-                        + Thread.currentThread().getName());
-                Thread.sleep(5);
+                System.out.print(str);
+                notifyAll();
+                wait();
+
             }
-            //canvas.delete(b);
-            //canvas.repaint();
-            //Thread.currentThread().interrupt();
-           // Thread.currentThread().sleep(1);
 
         } catch(InterruptedException ex){
             System.out.println(Thread.currentThread().getState());
