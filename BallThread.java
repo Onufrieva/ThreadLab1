@@ -3,20 +3,23 @@ public class BallThread  extends Thread{
     BallThread(String str){
         this.str = str;
     }
-    synchronized
-    @Override
-    public void run(){
+    synchronized void khz(){
         try{
-            while (!(1==0)){
-                System.out.print(str);
-                notifyAll();
-                wait();
+        System.out.print(str);
+        notifyAll();
+        wait();
 
-            }
 
-        } catch(InterruptedException ex){
-            System.out.println(Thread.currentThread().getState());
+    } catch(InterruptedException ex){
+        System.out.println(Thread.currentThread().getState());
+    }
+    }
+
+    @Override
+    public void run() {
+
+        while (!(1 == 0)) {
+            khz();
         }
-
     }
 }
