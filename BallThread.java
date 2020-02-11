@@ -19,6 +19,7 @@ public class BallThread  extends Thread{
     public void run() {
 
         while (!(1 == 0)) {
+
             khz();
         }
     }
