@@ -8,6 +8,5 @@ public class Bounce {
             thread1.start();
         }
 
-
     }
 }
