@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class BounceFrame extends JFrame {
 
@@ -29,21 +30,26 @@ public class BounceFrame extends JFrame {
         buttonStart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                ArrayList<BallThread> threads = new ArrayList<>();
+                for (int i = 0; i <500 ; i++) {
+                    Ball b = new Ball(canvas,c2);
+                    canvas.add(b);
+                    canvas.repaint();
+                    BallThread thread = new BallThread(b, canvas);
+                    thread.setPriority(Thread.MIN_PRIORITY);
+                    threads.add(thread);
+                }
                 Ball b = new Ball(canvas,c1);
                 canvas.add(b);
                 BallThread thread = new BallThread(b, canvas);
                 thread.setPriority(Thread.MAX_PRIORITY);
-                thread.start();
-                System.out.println("Thread name = " + thread.getName());
-                Ball b1 = new Ball(canvas,c2);
-                canvas.add(b1);
-                canvas.repaint();
-                BallThread thread1 = new BallThread(b, canvas);
-                thread1.setPriority(Thread.MIN_PRIORITY);
-                thread1.start();
-                System.out.println("Thread name = " + thread1.getName());
-                canvas.repaint();
+                threads.add(thread);
+                for (BallThread t:threads){
+                    t.start();
+            }
+
+
+
             }
         });
 
