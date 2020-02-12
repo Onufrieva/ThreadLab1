@@ -29,7 +29,7 @@ BallCanvas canvas;
             }
             canvas.delete(b);
             canvas.repaint();
-            Thread.currentThread().interrupt();
+           // Thread.currentThread().interrupt();
             Thread.currentThread().sleep(1);
 
         } catch(InterruptedException ex){
