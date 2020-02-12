@@ -21,16 +21,16 @@ BallCanvas canvas;
     @Override
     public void run(){
         try{
-            while (!((b.x>=x-10 && b.x<=x+10 )&&(b.y>=y-10 && b.y<=y+10))){
+            while (true){
                 b.move();
                 System.out.println("Thread name = "
                         + Thread.currentThread().getName());
                 Thread.sleep(5);
             }
-            canvas.delete(b);
-            canvas.repaint();
-            Thread.currentThread().interrupt();
-            Thread.currentThread().sleep(1);
+            //canvas.delete(b);
+            //canvas.repaint();
+            //Thread.currentThread().interrupt();
+            //Thread.currentThread().sleep(1);
 
         } catch(InterruptedException ex){
 

@@ -68,6 +68,8 @@ Color c1 = new Color (255,255,0);
         buttonStop.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                for (int i = 0; i <1000 ; i++) {
+
 
                 Ball b = new Ball(canvas,c2);
                 canvas.add(b);
@@ -80,7 +82,8 @@ Color c1 = new Color (255,255,0);
                 thread.start();
                 System.out.println("Thread name = " + thread.getName());
 
-                canvas.repaint();
+                //canvas.repaint();
+                }
 
             }
 
