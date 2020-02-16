@@ -39,7 +39,7 @@ class Ball {
     public void del(){
         this.canvas.repaint();
     }
-    public void move(){
+    public synchronized void  move(){
         x+=dx;
         y+=dy;
         if(x<0){

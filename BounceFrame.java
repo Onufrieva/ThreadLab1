@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class BounceFrame extends JFrame {
 
@@ -11,6 +12,7 @@ public class BounceFrame extends JFrame {
     Color c1 = new Color (255,255,0);
     Color c2 = new Color (0,100,255);
     Color c3 = new Color (0,102,50);
+    int i;
     public BounceFrame() {
         this.setSize(WIDTH, HEIGHT);
         this.setTitle("Bounce programm");
@@ -29,10 +31,11 @@ public class BounceFrame extends JFrame {
         buttonStart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+               ArrayList<BallThread> threads = new ArrayList<>();
                 Ball b = new Ball(canvas,c1);
                 canvas.add(b);
-                BallThread thread = new BallThread(b, canvas);
-                thread.setPriority(Thread.MAX_PRIORITY);
+                BallThread thread = new BallThread(b, canvas,threads);;
+                threads.add(thread);
                 thread.start();
                 System.out.println("Thread name = " + thread.getName());
             }
@@ -41,15 +44,6 @@ public class BounceFrame extends JFrame {
         buttonStop.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                Ball b = new Ball(canvas,c2);
-                canvas.add(b);
-                BallThread thread = new BallThread(b, canvas);
-                thread.setPriority(Thread.MIN_PRIORITY);
-                thread.start();
-                System.out.println("Thread name = " + thread.getName());
-
-                canvas.repaint();
             }
         });
 

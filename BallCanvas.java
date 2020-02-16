@@ -3,11 +3,13 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class BallCanvas extends JPanel {
+
     private ArrayList<Ball> balls = new ArrayList<>();
 
-
     public int counter=0;
-
+public int gse(){
+    return balls.size();
+}
     public void add(Ball b){
         this.balls.add(b);
     }
