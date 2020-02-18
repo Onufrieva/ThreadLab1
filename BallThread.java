@@ -1,25 +1,22 @@
-public class BallThread  extends Thread{
-    String str;
-    BallThread(String str){
-        this.str = str;
-    }
-    synchronized void khz(){
-        try{
-        System.out.print(str);
-        notifyAll();
-        wait();
+public class BallThread extends Thread {
+    Runnable function;
 
-
-    } catch(InterruptedException ex){
-        System.out.println(Thread.currentThread().getState());
-    }
+    public BallThread(Runnable function) {
+        this.function = function;
     }
 
     @Override
     public void run() {
-
-        while (!(1 == 0)) {
-            khz();
+//        for (int i = 0; i < 100000; i++) {
+//            this.function.run();
+//        }
+      try {
+            for (int i = 0; i < 100000; i++) {
+                this.function.run();
+                sleep(1);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 }

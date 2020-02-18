@@ -1,7 +1,24 @@
 public class Counter {
-    public void increment(){}
+    protected int count;
+    public Counter() {
+        this.count = 0;
+    }
 
+    public Counter(int count) {
+        this.count = count;
+    }
 
-    public void decrement(){}
+    public int getCount() {
+        return count;
+    }
+
+    public void increment() {
+        ++this.count;
+    }
+
+    public void decrement() {
+        --this.count;
+
+    }
 
 }
