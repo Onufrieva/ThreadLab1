@@ -3,11 +3,9 @@ public class Counter {
     public Counter() {
         this.count = 0;
     }
-
     public Counter(int count) {
         this.count = count;
     }
-
     public int getCount() {
         return count;
     }
@@ -18,7 +16,6 @@ public class Counter {
 
     public void decrement() {
         --this.count;
-
     }
 
 }
