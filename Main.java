@@ -15,7 +15,7 @@ public class Main {
             start = System.nanoTime();
             MatrixOp.simpleMultiplying(A, B, simpleC);
             finishNanoTimer();
-            System.out.println("---------- Cтрічковий алгоритм множення матриць ----------");
+            System.out.println("---------- Алгоритм фокса множення матриць ----------");
             for (int p : processors) {
                 System.out.println("КІЛЬКІСТЬ ПОТОКІВ: " + p);
                 MyMatrix blockC = new MyMatrix(A.getRows(), B.getCols(), 0);
@@ -30,7 +30,7 @@ public class Main {
     public static void finishNanoTimer() {
         long finish = System.nanoTime();
         long time = finish - start;
-        System.out.println("Тривалість обчислень: " + (time / 1000000) + " мілісек, " + (time / 1000 % 1000) + " мікросек");
+        System.out.println("Тривалість обчислень: " + (time / 1000000) + " мілісек, " + (time / 1000 /*% 1000*/) + " мікросек");
         System.out.println("Тривалість обчислень в наносекундах: " + time);
         start = 0;
     }
