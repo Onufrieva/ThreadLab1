@@ -31,7 +31,7 @@ public class BounceFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ArrayList<BallThread> threads = new ArrayList<>();
-                for (int i = 0; i <5 ; i++) {
+                for (int i = 0; i <5; i++) {
                     Ball b = new Ball(canvas,c2);
                     canvas.add(b);
                     canvas.repaint();
