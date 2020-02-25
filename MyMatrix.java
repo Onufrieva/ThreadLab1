@@ -14,7 +14,6 @@ public class MyMatrix {
         matrix = new int[rows][cols];
         generate(i);
     }
-
     public MyMatrix(int[][] matrix) {
         this.matrix = new int[matrix.length][matrix[0].length];
         for (int i = 0; i < matrix.length; i++) {
@@ -23,6 +22,7 @@ public class MyMatrix {
             }
         }
     }
+
 
     public void setElement(int i, int j, int value) {
         matrix[i][j] = value;
@@ -35,10 +35,10 @@ public class MyMatrix {
     public int[][] getMatrix() {
         return matrix;
     }
-
-    public void setMatrix(int[][] matrix) {
-        this.matrix = matrix;
-    }
+//
+//    public void setMatrix(int[][] matrix) {
+//        this.matrix = matrix;
+//    }
 
     public void generate() {
         for (int i = 0; i < matrix.length; i++) {
@@ -56,16 +56,16 @@ public class MyMatrix {
         }
     }
 
-    public void print(String str) {
-        System.out.println(str);
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                System.out.print(matrix[i][j] + "\t");
-            }
-            System.out.println();
-        }
-        System.out.println();
-    }
+//    public void print(String str) {
+//        System.out.println(str);
+//        for (int i = 0; i < matrix.length; i++) {
+//            for (int j = 0; j < matrix[i].length; j++) {
+//                System.out.print(matrix[i][j] + "\t");
+//            }
+//            System.out.println();
+//        }
+//        System.out.println();
+//    }
 
     public int getCols(){
         return matrix[0].length;
