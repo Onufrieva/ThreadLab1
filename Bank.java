@@ -1,9 +1,8 @@
 import java.util.concurrent.atomic.AtomicIntegerArray;
 import java.util.concurrent.atomic.AtomicLong;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class Bank {
-    ReentrantLock lock = new ReentrantLock();
+
     public static final int NTEST = 10000;
     private final AtomicIntegerArray accounts;               // масив рахунків
     private AtomicLong ntransacts = new AtomicLong();
@@ -13,23 +12,21 @@ public class Bank {
         int i;
         for (i = 0; i < accounts.length(); i++)   // нарахувати на кожний рахунок 10 000
             accounts.set(i,initialBalance);
-        ntransacts = new AtomicLong(0);
+        ntransacts.set(0);
 
     }
 
     public void transfer(int from, int to, int amount) throws InterruptedException{
-        lock.lock();
-        try {
-            if (accounts.get(from)>= amount) {
+
+
+
                 accounts.getAndAdd(from,amount);
                 accounts.getAndAdd(to,-amount);
-                ntransacts.incrementAndGet();
-            }
+                ntransacts.set(ntransacts.get()+1);
+
             if (ntransacts.get() % NTEST == 0) test();
-        }
-        finally {
-            lock.unlock();
-        }
+
+
     }
 
     public void test(){
