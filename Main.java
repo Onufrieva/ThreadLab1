@@ -3,7 +3,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int[] processors = {2, 4, 8, 16};
+        int[] processors = {2, 4, 9, 16};
         int[] sizes = {500, 1000, 1500, 2000, 2500, 3000, 4000, 5000};
 
         for (int size : sizes) {
