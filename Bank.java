@@ -1,7 +1,5 @@
-import java.util.concurrent.locks.ReentrantLock;
-
 public class Bank {
-    ReentrantLock lock = new ReentrantLock();
+
     public static final int NTEST = 10000;
     private final int[] accounts;               // масив рахунків
     private long ntransacts = 0;
@@ -15,19 +13,11 @@ public class Bank {
 
     }
 
-    public void transfer(int from, int to, int amount) throws InterruptedException{
-        lock.lock();
-        try {
-            if (accounts[from] >= amount) {
+    public synchronized void transfer(int from, int to, int amount) throws InterruptedException{
                 accounts[from] -= amount;
                 accounts[to] += amount;
                 ntransacts++;
-            }
             if (ntransacts % NTEST == 0) test();
-        }
-        finally {
-            lock.unlock();
-        }
     }
 
     public void test(){
