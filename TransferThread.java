@@ -15,7 +15,6 @@ public class TransferThread extends Thread {
                 for (int i = 0; i < REPS; i++){
                     int toAccount = (int)(bank.size() * Math.random());     // куди переводимо
                     int amount = (int)(maxAmount * Math.random() / REPS);   // кількість грошей, яку переводимо
-
                     bank.transfer(fromAccount, toAccount, amount);
                     Thread.sleep(1);
                 }
