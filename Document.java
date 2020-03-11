@@ -7,10 +7,9 @@ import java.util.List;
 
 class Document {
     private final List<String> lines;
-    public String name;
-    public Document(List<String> lines, String name){
+
+    public Document(List<String> lines){
         this.lines = lines;
-        this.name = name;
     }
 
     public List<String> getLines(){
@@ -21,6 +20,7 @@ class Document {
         List<String> lines = new LinkedList<>();
 
         try(BufferedReader reader = new BufferedReader(new FileReader(file))) {
+
             String line = reader.readLine();
 
             while (line != null) {
@@ -29,15 +29,10 @@ class Document {
 
                 line = reader.readLine();
             }
+
         }
 
-        return new Document(lines, file.getName());
+        return new Document(lines);
     }
 
-    public static String getFileExtension(File file) {
-        String fileName = file.getName();
-        if(fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0)
-            return fileName.substring(fileName.lastIndexOf(".")+1);
-        else return "";
-    }
 }
