@@ -1,12 +1,22 @@
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
+import java.util.concurrent.ForkJoinPool;
 
 public class main {
+    private static ForkJoinPool forkJoinPool = new ForkJoinPool();
     public static void main(String[] args) throws IOException {
-         var timer = new TimeWrapper();
-         var a = Matrix.Random(1000,1000,1);
-        var b = Matrix.Random(1000,1000,1);
-        var resultS = Matrix.StripedAlgorithm(a,b, timer);
-        var t = ((double)timer.elapsedTime)/ 1000000000;
-        System.out.println("Time consumed: " + t);
+        var internalDirectoryPath = System.getProperty("user.dir");
+        var path = Paths.get(internalDirectoryPath, "firstTestFile.txt").toString();
+        Document firstDocument = Document.fromFile(new File(path));
+        path = Paths.get(internalDirectoryPath, "secondTestFile.txt").toString();
+        Document secondDocument = Document.fromFile(new File(path));
+
+        var similarWords = forkJoinPool.invoke(new DocumentsCompareTask(firstDocument, secondDocument));
+
+        System.out.println("Similar words count: " + similarWords.size());
+        for(String word: similarWords){
+            System.out.println(word);
+        }
     }
 }
